@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ---------- Color tokens (from brief, exact) ---------- */
+  --color-bg: #FFF8F2;
+  --color-card: #FFFFFF;
+  --color-primary: #F97316;
+  --color-primary-dark: #C2560A;
+  --color-gold: #D4AF37;
+  --color-gold-soft: #E8CE7B;
+  --color-brown: #3B2417;
+  --color-brown-soft: #6B4A38;
+  --color-sand: #F5EFE7;
+  --color-sand-line: #E7DCCB;
+
+  /* ---------- Cultural accent tokens ---------- */
+  --color-maroon: #6B1420;
+  --color-maroon-soft: #8A2632;
+  --color-vermillion: #B23A2E;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #128C4A;
+
+  /* ---------- Typography ---------- */
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-devanagari: "Noto Sans Devanagari", serif;
+
+  /* ---------- Radius ---------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-soft: 0 2px 8px rgba(59, 36, 23, 0.06);
+  --shadow-card: 0 12px 32px -12px rgba(59, 36, 23, 0.16);
+  --shadow-lift: 0 24px 48px -16px rgba(59, 36, 23, 0.24);
+  --shadow-gold-glow: 0 0 0 1px rgba(212, 175, 55, 0.25), 0 8px 24px -8px rgba(212, 175, 55, 0.35);
+
+  /* ---------- Motion ---------- */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-base: 500ms;
+  --duration-slow: 900ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.font-devanagari {
+  font-family: var(--font-devanagari);
+  letter-spacing: 0;
+}
+
+/* Faint traditional dot-lattice texture, used as a section watermark */
+.bg-mandala-texture {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.35) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-brown);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-sand); }
+::-webkit-scrollbar-thumb { background: var(--color-gold-soft); border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-premium), transform var(--duration-slow) var(--ease-premium);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes drift {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+  50%  { transform: translateY(-18px) translateX(10px) rotate(8deg); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+.animate-drift { animation: drift 7s var(--ease-premium) infinite; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 60s linear infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--color-sand) 0%, #fff 50%, var(--color-sand) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
