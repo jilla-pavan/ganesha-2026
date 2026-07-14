@@ -14,7 +14,6 @@ import {
   generalEnquiryMessage,
   BUSINESS_DISPLAY_NUMBER,
 } from "@/utils/whatsapp";
-import { cn } from "@/utils/cn";
 
 const trust = [
   {

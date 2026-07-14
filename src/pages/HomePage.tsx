@@ -4,7 +4,6 @@ import { FeaturedCollection } from "@/components/home/FeaturedCollection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { ArtisanStory } from "@/components/home/ArtisanStory";
 import { ProcessTimeline } from "@/components/home/ProcessTimeline";
-import { BulkOrderBanner } from "@/components/home/BulkOrderBanner";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FaqSection } from "@/components/home/FaqSection";
 import { SectionDivider } from "@/components/common/SectionDivider";

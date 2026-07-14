@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Heart, MessageCircle, Leaf } from "lucide-react";
 import type { Product } from "@/types";
-import { Badge } from "@/components/ui/Badge";
 import { IconButton } from "@/components/ui/IconButton";
 import { StarRating } from "@/components/common/Primitives";
 import { buildWhatsAppLink, productEnquiryMessage } from "@/utils/whatsapp";
